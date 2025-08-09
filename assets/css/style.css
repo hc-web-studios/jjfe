@@ -142,7 +142,7 @@ nav {
 }
 
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     position: absolute;
     top: 0;
     left: 0;
@@ -614,3 +614,15 @@ color: #fff;
 font-weight: 900;
 text-transform: uppercase;
 letter-spacing: -1px;}
+
+
+
+
+
+
+
+
+.p1{
+
+    background: rgba(0, 0, 0, 0.05);
+}
