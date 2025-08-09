@@ -56,10 +56,6 @@
             </div>
         </div>
     </div>
-    <div class="dot-container">
-        <button class="dot active"></button>
-        <button class="dot"></button>
-    </div>
 </section>
 
 <!-- About Section -->
@@ -306,49 +302,32 @@ Thinking outside the box to over come onsite issues with resolutions that works 
 
     const slidesWrapper = document.querySelector('.hero-slides-wrapper');
     const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.dot');
     let currentSlide = 0;
-    let isTransitioning = false;
+    let slideCount = slides.length;
 
-    function showSlide(index) {
+    // Clone the first slide and append it to the end (do this only once)
+    if (!slidesWrapper.querySelector('.hero-slide.clone')) {
+        const firstSlideClone = slides[0].cloneNode(true);
+        firstSlideClone.classList.add('clone');
+        slidesWrapper.appendChild(firstSlideClone);
+    }
+
+    function continuousScroll() {
+        currentSlide++;
         slidesWrapper.style.transition = 'transform 1s cubic-bezier(0.77,0,0.175,1)';
-        slidesWrapper.style.transform = `translateX(-${index * 100}vw)`;
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-        currentSlide = index;
-    }
+        slidesWrapper.style.transform = `translateX(-${currentSlide * 100}vw)`;
 
-    function nextSlide() {
-        let next = currentSlide + 1;
-        if (next >= slides.length) {
-            showSlide(0);
-        } else {
-            showSlide(next);
+        // If we've reached the clone, reset instantly to the real first slide
+        if (currentSlide === slideCount) {
+            setTimeout(() => {
+                slidesWrapper.style.transition = 'none';
+                slidesWrapper.style.transform = `translateX(0vw)`;
+                currentSlide = 0;
+            }, 1000); // Match transition duration
         }
     }
 
-    function prevSlide() {
-        let prev = currentSlide - 1;
-        if (prev < 0) {
-            showSlide(slides.length - 1);
-        } else {
-            showSlide(prev);
-        }
-    }
-
-    // Add event listeners to dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-        });
-    });
-
-    // Auto-play the slider
-    setInterval(nextSlide, 5000);
-
-    // Initialize first slide
-    showSlide(currentSlide);
+    setInterval(continuousScroll, 5000); // Change every 5 seconds
 
     // Mobile Navigation Menu Functionality
     const hamburger = document.querySelector('.hamburger');
