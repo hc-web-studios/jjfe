@@ -539,8 +539,8 @@ form .btn {
     position: fixed;
     right: 32px;
     bottom: 32px;
-    width: 44px;
-    height: 44px;
+    width: 64px;
+    height: 64px;
     background: #0b1682;
     border: none;
     outline: none;
@@ -549,7 +549,7 @@ form .btn {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s;
-    border-radius: 6px; /* square with slightly rounded corners */
+    border-radius: 6px;
     box-shadow: 0 2px 8px rgba(11,22,130,0.15);
     display: flex;
     align-items: center;
@@ -563,8 +563,8 @@ form .btn {
 }
 
 #backToTop svg {
-    width: 24px;
-    height: 24px;
+    width: 56px;      /* Larger arrow */
+    height: 56px;     /* Larger arrow */
     display: block;
 }
 
