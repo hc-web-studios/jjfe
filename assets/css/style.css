@@ -9,6 +9,7 @@ h1 h2 h3 h4 h5 h6 p strong {
     font-family: "Work Sans", sans-serif;
     font-weight: weight;
     font-style: normal;
+    color: #0b1682;
 
 }
 
@@ -38,6 +39,7 @@ section {
 
 h1, h2, h3 {
     font-weight: 700;
+    font-family: work-sans", sans-serif ;
 }
 
 h2 {
@@ -521,7 +523,7 @@ form .btn {
 .fab-install-card h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #0b1682;
+    color: black;
 }
 
 .fab-install-card p {
@@ -583,7 +585,7 @@ form .btn {
     .hamburger.open .bar:nth-child(2) { opacity: 0; }
     .hamburger.open .bar:last-child { transform: translateY(-10px) rotate(-45deg); }
 
-    .hero-content h1 { font-size: 3rem; }
+    .hero-content h1 { font-size: 2rem; }
     .hero-content p { font-size: 1rem; }
 
     .about-content, .contact-content {
