@@ -439,28 +439,30 @@ form .btn {
 
 .social-links a {
     display: inline-block;
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
+    transition: transform 0.2s cubic-bezier(.4,2,.3,1);
     position: relative;
 }
 
-/* Keyframes for the flip animation on hover */
-@keyframes flip {
-    0% {
-        transform: rotateY(0deg);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
-}
-
-.social-links a:hover {
-    animation: flip .8s ease-in-out;
+.social-links a:hover img {
+    transform: translateY(-4px) scale(1.25);
+    box-shadow: 0 4px 16px rgba(11,22,130,0.18);
 }
 
 .social-links img {
-    width: 50px; /* Increased image size */
-    height: 50px;
+    border-radius: 3px;
+    padding: 4px;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    /* color and fill for SVGs if needed */
+    color: #fff;
+    fill: #fff;
+    transition: transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s;
+}
+
+/* Remove the flip animation */
+.social-links a:hover {
+    animation: none;
 }
 
 .footer-text {
