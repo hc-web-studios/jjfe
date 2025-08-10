@@ -198,7 +198,9 @@ Thinking outside the box to over come onsite issues with resolutions that works 
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </span>
-                            <span><strong>Email:</strong> <a href="mailto:admin@jjfabrication.org">admin@jjfabrication.org</a></span>
+                            <span><strong>Email:</strong>
+                                <span id="emailCopy" class="copy-email" tabindex="0">admin@jjfabrication.org</span>
+                            </span>
                         </li>
                         <li>
                             <span class="icon">
@@ -376,6 +378,23 @@ Thinking outside the box to over come onsite issues with resolutions that works 
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Email copy functionality
+    const emailCopy = document.getElementById('emailCopy');
+emailCopy.addEventListener('click', function () {
+    const email = this.textContent;
+    navigator.clipboard.writeText(email).then(() => {
+        const popup = document.getElementById('emailPopup');
+        emailCopy.classList.add('copied'); // Hide "Click to copy"
+        popup.classList.add('show');
+        setTimeout(() => {
+            popup.classList.remove('show');
+            emailCopy.classList.remove('copied'); // Restore "Click to copy"
+        }, 1800);
+    });
+});
 </script>
+
+<div id="emailPopup">Email copied</div>
 </body>
 </html>
