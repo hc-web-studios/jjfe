@@ -551,8 +551,8 @@ form .btn {
     position: fixed;
     right: 32px;
     bottom: 32px;
-    width: 64px;      /* Increased size */
-    height: 64px;     /* Increased size */
+    width: 64px;
+    height: 64px;
     background: #0b1682;
     border: none;
     outline: none;
@@ -560,7 +560,7 @@ form .btn {
     z-index: 100;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(11,22,130,0.15);
     display: flex;
@@ -574,9 +574,15 @@ form .btn {
     pointer-events: auto;
 }
 
+#backToTop:hover {
+    transform: translateY(-8px) scale(1.15);
+    box-shadow: 0 8px 24px rgba(11,22,130,0.18);
+}
+
 #backToTop svg {
-    width: 40px;      /* Increased arrow size */
-    height: 40px;     /* Increased arrow size */
+    width: 40px;
+    height: 40px;
+    display: block;
 }
 
 @media (max-width: 600px) {
